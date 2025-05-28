@@ -20,6 +20,9 @@
           <router-link to="/projects" @click.native="closeMenu">Projects</router-link>
           <router-link to="/contact" @click.native="closeMenu">Contact</router-link>
         </nav>
+
+        <!-- Backdrop -->
+        <div v-if="isOpen" class="backdrop" @click="closeMenu"></div>
       </div>
     </header>
 
@@ -44,14 +47,13 @@ const closeMenu = () => (isOpen.value = false)
 </script>
 
 <style scoped>
-/* Existing navbar styles */
 .navbar {
   background-color: white;
   padding: 1rem 2rem;
   border-bottom: 1px solid #e5e7eb;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
 }
 
 .nav-container {
@@ -60,6 +62,7 @@ const closeMenu = () => (isOpen.value = false)
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 
 .nav-logo {
@@ -67,6 +70,7 @@ const closeMenu = () => (isOpen.value = false)
   font-size: 1.2rem;
   color: #111827;
   text-decoration: none;
+  z-index: 1100;
 }
 
 .nav-links {
@@ -85,7 +89,6 @@ const closeMenu = () => (isOpen.value = false)
   color: #111827;
 }
 
-/* Burger icon */
 .burger {
   display: none;
   flex-direction: column;
@@ -93,6 +96,7 @@ const closeMenu = () => (isOpen.value = false)
   background: none;
   border: none;
   cursor: pointer;
+  z-index: 1100;
 }
 
 .burger span {
@@ -101,10 +105,19 @@ const closeMenu = () => (isOpen.value = false)
   height: 3px;
   background: #111827;
   border-radius: 2px;
-  transition: 0.3s;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* Footer style */
+.burger span.open:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.burger span.open:nth-child(2) {
+  opacity: 0;
+}
+.burger span.open:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
 .footer {
   text-align: center;
   font-size: 0.9rem;
@@ -121,7 +134,6 @@ const closeMenu = () => (isOpen.value = false)
   text-decoration: underline;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .burger {
     display: flex;
@@ -137,6 +149,8 @@ const closeMenu = () => (isOpen.value = false)
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 1rem;
     border-radius: 0.5rem;
+    z-index: 1050;
+    transition: all 0.3s ease-in-out;
   }
 
   .nav-links.mobile-visible {
@@ -145,6 +159,16 @@ const closeMenu = () => (isOpen.value = false)
 
   .nav-links a {
     padding: 0.5rem 0;
+  }
+
+  .backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1000;
   }
 }
 </style>
