@@ -14,11 +14,11 @@
 
         <!-- Navigation Links -->
         <nav :class="['nav-links', { 'mobile-visible': isOpen }]">
-          <router-link to="/">Home</router-link>
-          <router-link to="/about">About</router-link>
-          <router-link to="/skills">Skills</router-link>
-          <router-link to="/projects">Projects</router-link>
-          <router-link to="/contact">Contact</router-link>
+          <router-link to="/" @click.native="closeMenu">Home</router-link>
+          <router-link to="/about" @click.native="closeMenu">About</router-link>
+          <router-link to="/skills" @click.native="closeMenu">Skills</router-link>
+          <router-link to="/projects" @click.native="closeMenu">Projects</router-link>
+          <router-link to="/contact" @click.native="closeMenu">Contact</router-link>
         </nav>
       </div>
     </header>
@@ -40,6 +40,7 @@
 import { ref } from 'vue'
 const isOpen = ref(false)
 const toggleMenu = () => (isOpen.value = !isOpen.value)
+const closeMenu = () => (isOpen.value = false)
 </script>
 
 <style scoped>
@@ -147,3 +148,4 @@ const toggleMenu = () => (isOpen.value = !isOpen.value)
   }
 }
 </style>
+
