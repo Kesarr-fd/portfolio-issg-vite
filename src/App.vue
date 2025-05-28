@@ -2,11 +2,18 @@
   <div id="app">
     <header class="navbar">
       <div class="nav-container">
-        <!-- Logo ou nom -->
+        <!-- Logo -->
         <router-link to="/" class="nav-logo">Faical</router-link>
 
-        <!-- Liens -->
-        <nav class="nav-links">
+        <!-- Burger menu icon -->
+        <button class="burger" @click="toggleMenu">
+          <span :class="{ open: isOpen }"></span>
+          <span :class="{ open: isOpen }"></span>
+          <span :class="{ open: isOpen }"></span>
+        </button>
+
+        <!-- Navigation Links -->
+        <nav :class="['nav-links', { 'mobile-visible': isOpen }]">
           <router-link to="/">Home</router-link>
           <router-link to="/about">About</router-link>
           <router-link to="/skills">Skills</router-link>
@@ -20,7 +27,6 @@
       <router-view />
     </main>
 
-    <!-- Footer commun à toutes les pages -->
     <footer class="footer">
       © 2025 Faical – Portfolio |
       <a href="https://www.linkedin.com/in/faïcal-dielo-7b3154255/" target="_blank">LinkedIn</a> |
@@ -30,7 +36,14 @@
   </div>
 </template>
 
+<script setup>
+import { ref } from 'vue'
+const isOpen = ref(false)
+const toggleMenu = () => (isOpen.value = !isOpen.value)
+</script>
+
 <style scoped>
+/* Existing navbar styles */
 .navbar {
   background-color: white;
   padding: 1rem 2rem;
@@ -71,7 +84,26 @@
   color: #111827;
 }
 
-/* Footer */
+/* Burger icon */
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.burger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: #111827;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* Footer style */
 .footer {
   text-align: center;
   font-size: 0.9rem;
@@ -79,14 +111,39 @@
   padding: 2rem 1rem;
   background-color: #f3f4f6;
 }
-
 .footer a {
   color: #2563eb;
   text-decoration: none;
   margin: 0 0.4rem;
 }
-
 .footer a:hover {
   text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .burger {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: white;
+    position: absolute;
+    top: 70px;
+    right: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+
+  .nav-links.mobile-visible {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 0.5rem 0;
+  }
 }
 </style>
