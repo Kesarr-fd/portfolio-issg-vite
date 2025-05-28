@@ -14,11 +14,11 @@
 
         <!-- Navigation Links -->
         <nav :class="['nav-links', { 'mobile-visible': isOpen }]">
-          <router-link to="/" @click.native="closeMenu">Home</router-link>
-          <router-link to="/about" @click.native="closeMenu">About</router-link>
-          <router-link to="/skills" @click.native="closeMenu">Skills</router-link>
-          <router-link to="/projects" @click.native="closeMenu">Projects</router-link>
-          <router-link to="/contact" @click.native="closeMenu">Contact</router-link>
+          <router-link to="/" @click="closeMenu">Home</router-link>
+          <router-link to="/about" @click="closeMenu">About</router-link>
+          <router-link to="/skills" @click="closeMenu">Skills</router-link>
+          <router-link to="/projects" @click="closeMenu">Projects</router-link>
+          <router-link to="/contact" @click="closeMenu">Contact</router-link>
         </nav>
 
         <!-- Backdrop -->
