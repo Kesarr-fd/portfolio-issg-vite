@@ -45,7 +45,7 @@ const toggle = (target) => {
         </button>
         <div v-if="actif === 'short'" class="contenu-objectif">
           <ul>
-            <li>✔️ Secure a 4 to 6-month internship in a dynamic environment</li>
+            <li>✔️ Secure a 5 month internship in a dynamic environment</li>
             <li>✔️ Apply my skills to real-life projects</li>
             <li>✔️ Strengthen my teamwork, leadership, and efficiency</li>
           </ul>

@@ -4,7 +4,7 @@
 
     <section class="bloc-contact">
       <p>
-        I am available for a <strong>4 to 6-month internship starting in November 2025</strong> in IT project management, IT governance, or digital transformation.
+        I am available for a <strong>5 month internship starting in November 2025</strong> in IT project management, IT governance, or digital transformation.
       </p>
       <p>
         Feel free to reach out to me directly using one of the options below:

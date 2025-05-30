@@ -48,7 +48,7 @@ function precedent() {
         <h1 class="titre">Hi, I’m Faical</h1>
         <h2 class="soustitre">Master's student – Information Systems Strategy & Governance (Efrei Paris)</h2>
         <p class="intro">
-          🎯 I am looking for a <strong>4 to 6-month internship</strong> starting in <strong>November 2025</strong> in IT project management, information systems governance, or digital transformation.
+          🎯 I am looking for a <strong> 5 month internship</strong> starting in <strong>November 2025</strong> in IT project management, information systems governance, or digital transformation.
         </p>
         <p class="intro">
           💬 Curious, structured, and solution-oriented, I use technology to serve business needs.
@@ -95,7 +95,7 @@ function precedent() {
     <section class="bloc-cadre">
       <h3 class="bloc-titre">Key Skills</h3>
       <p>
-        🛠️ ITIL • Functional Analysis • Power BI • Cybersecurity • Project Management • GDPR • Scrum
+         ITIL • Functional Analysis • Power BI • Cybersecurity • Project Management • GDPR • Scrum
       </p>
       <router-link to="/skills" class="bloc-lien">➡️ See all skills</router-link>
     </section>
